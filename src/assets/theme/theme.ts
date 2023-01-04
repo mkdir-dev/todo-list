@@ -4,12 +4,20 @@ import ActorRegularWoff2 from '../fonts/Actor-Regular.woff2';
 import ActorRegularWoff from '../fonts/Actor-Regular.woff';
 import ActorRegularTtf from '../fonts/Actor-Regular.ttf';
 
-import { titleColor, subtitleColor } from '../styles/colors';
+import { mainColor, subtitleColor, mainBgColor } from '../styles/colors';
 
+/*
+`
+        
+      `,
+*/
 export const theme = createTheme({
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
+      styleOverrides: () => `
+        body {
+          background-color: ${mainBgColor};
+        }
         @font-face {
           font-family: 'Actor, sans-serif';
           src: local('Actor'), local('Actor-Regular'), url(${ActorRegularWoff2}) format('woff2'),
@@ -29,23 +37,54 @@ export const theme = createTheme({
     h1: {
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '36px',
-      lineHeight: '43px',
-      color: titleColor,
+      fontSize: '48px',
+      lineHeight: '64px',
+      textTransform: 'capitalize',
+      color: mainColor,
+
+      '@media(max-width:768px)': {
+        fontSize: '36px',
+        lineHeight: '43px',
+      },
     },
     h2: {
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '24px',
-      lineHeight: '28px',
-      color: titleColor,
+      fontSize: '36px',
+      lineHeight: '43px',
+      textTransform: 'capitalize',
+      color: mainColor,
+
+      '@media(max-width:768px)': {
+        fontSize: '24px',
+        lineHeight: '28px',
+      },
+    },
+    h3: {
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '28px',
+      lineHeight: '36px',
+      textTransform: 'capitalize',
+      color: mainColor,
+
+      '@media(max-width:768px)': {
+        fontSize: '20px',
+        lineHeight: '26px',
+      },
     },
     subtitle1: {
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '14px',
-      lineHeight: '17px',
+      fontSize: '18px',
+      lineHeight: '24px',
+      textTransform: 'capitalize',
       color: subtitleColor,
+
+      '@media(max-width:768px)': {
+        fontSize: '14px',
+        lineHeight: '17px',
+      },
     },
   },
 });

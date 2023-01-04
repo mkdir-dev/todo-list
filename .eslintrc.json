@@ -25,6 +25,7 @@
     ],
     "rules": {
         "import/no-unresolved": [0],
+        "import/named": 0,
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/naming-convention": "off",
         "no-prototype-builtins": "off",
@@ -57,7 +58,6 @@
         "class-methods-use-this": "off",
         "react/prop-types": "off",
         "react/jsx-key": "error",
-        "react/jsx-props-no-spreading": "error",
         "react/jsx-no-duplicate-props": [
         "error",
         {
