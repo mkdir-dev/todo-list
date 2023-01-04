@@ -1,26 +1,43 @@
 {
+  "include": [
+    "src",
+    "src/**/*",
+  ],
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "src",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "DOM",
+      "DOM.Iterable",
+      "ES2019"
     ],
-    "allowJs": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
+    "module": "esnext",
+    "target": "es6",
+    "outDir": "dist",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "remove",
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "Node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+    "sourceMap": true,
+
+    "noImplicitAny": false
+  }
 }
