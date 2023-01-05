@@ -15,18 +15,18 @@ export const ToolbarSettings = styled(Toolbar)({
     maxWidth: '1000px',
     width: '100%',
     margin: '0 auto',
-    padding: '10px 24px',
+    padding: '10px 48px',
 
     '@media(max-width:900px)': {
-      padding: '8px 18px',
+      padding: '8px 36px',
     },
 
     '@media(max-width:768px)': {
-      padding: '6px 12px',
+      padding: '6px 24px',
     },
 
     '@media(max-width:480px)': {
-      padding: '6px 10px',
+      padding: '6px 20px',
     },
   },
 });

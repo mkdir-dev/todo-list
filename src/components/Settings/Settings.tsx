@@ -1,5 +1,13 @@
 import React from 'react';
-import { Dialog, AppBar, Typography } from '@mui/material';
+import {
+  Dialog,
+  AppBar,
+  Typography,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -34,20 +42,22 @@ export const Settings: React.FC<SettingsProps> = ({
         </IconBtn>
       </ToolbarSettings>
     </AppBar>
+
+    <List>
+      <ListItem>
+        <ListItemText primary="Phone ringtone" secondary="Titania" />
+      </ListItem>
+      <Divider />
+      <ListItem>
+        <ListItemText
+          primary="Default notification ringtone"
+          secondary="Tethys"
+        />
+      </ListItem>
+    </List>
   </Dialog>
 );
 
 /*
-<List>
-  <ListItem>
-    <ListItemText primary="Phone ringtone" secondary="Titania" />
-  </ListItem>
-  <Divider />
-  <ListItem>
-    <ListItemText
-      primary="Default notification ringtone"
-      secondary="Tethys"
-    />
-  </ListItem>
-</List>
+
 */

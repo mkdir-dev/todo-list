@@ -7,13 +7,6 @@ import ActorRegularTtf from '../fonts/Actor-Regular.ttf';
 import { mainColor, subtitleColor, mainBgColor } from '../styles/colors';
 
 export const theme = createTheme({
-  /*
-  palette: {
-    primary: {
-      main: mainBgColor,
-    },
-  },
-  */
   components: {
     MuiCssBaseline: {
       styleOverrides: () => `
