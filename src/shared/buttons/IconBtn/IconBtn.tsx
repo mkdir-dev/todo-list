@@ -4,7 +4,7 @@ import { IconButton } from '@mui/material';
 import { mainColor } from 'assets/styles/colors';
 
 import { IconBtnProps } from 'typings/shared/buttons/buttons';
-// 'settings'
+
 export const IconBtn: React.FC<IconBtnProps> = ({
   label,
   children,

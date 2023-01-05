@@ -4,7 +4,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 import { HeaderBox } from 'ui/Header/Header';
 import { IconBtn } from 'shared/buttons/IconBtn/IconBtn';
-import { SettingsDialog } from 'shared/dialogs/SettingsDialog/SettingsDialog';
+import { Settings } from 'components/Settings/Settings';
 
 export const Header: React.FC = () => {
   const [isSettingsDialog, setSettingsDialog] = useState(false);
@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
         </IconBtn>
       </HeaderBox>
 
-      <SettingsDialog
+      <Settings
         isSettingsDialog={isSettingsDialog}
         handleClose={() => {
           setSettingsDialog(false);

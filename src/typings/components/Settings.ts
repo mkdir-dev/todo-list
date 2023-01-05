@@ -1,4 +1,4 @@
-export interface SettingsDialogProps {
+export interface SettingsProps {
   isSettingsDialog: boolean;
   handleClose: () => void;
 }

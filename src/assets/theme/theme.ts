@@ -6,12 +6,14 @@ import ActorRegularTtf from '../fonts/Actor-Regular.ttf';
 
 import { mainColor, subtitleColor, mainBgColor } from '../styles/colors';
 
-/*
-`
-        
-      `,
-*/
 export const theme = createTheme({
+  /*
+  palette: {
+    primary: {
+      main: mainBgColor,
+    },
+  },
+  */
   components: {
     MuiCssBaseline: {
       styleOverrides: () => `
@@ -32,7 +34,9 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ['Actor', '-apple-system', 'Helvetica Neue', 'sans-serif'].join(','),
+    fontFamily: ['Actor', '-apple-system', 'Helvetica Neue', 'sans-serif'].join(
+      ','
+    ),
 
     h1: {
       fontStyle: 'normal',
