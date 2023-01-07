@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box } from '@mui/system';
 import { CircularProgress, Typography } from '@mui/material';
+
+import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
 
 import { TickerBoxStyled } from 'ui/Ticker/Ticker';
 import { useGetNews } from 'hooks/useGetNews';
 import { errColor, loadColor, mainColor } from 'assets/styles/colors';
 
 export const Ticker: React.FC = () => {
+  const isShowNewsTicker = useContext(ShowNewsTickerContext);
+
   const { NewsData, isLoadingNews, isErrorNews } = useGetNews({
-    isGetNews: true,
+    isGetNews: isShowNewsTicker,
   });
 
   const stringNews = NewsData?.map((news) => news.title).join(' * * * ');
 
-  if (isErrorNews)
+  if (isLoadingNews) {
+    return (
+      <Box sx={TickerBoxStyled}>
+        <CircularProgress
+          sx={{ display: 'block', margin: '0 auto', color: loadColor }}
+        />
+      </Box>
+    );
+  }
+  if (isErrorNews) {
     return (
       <Box sx={TickerBoxStyled}>
         <Typography
@@ -24,14 +37,7 @@ export const Ticker: React.FC = () => {
         </Typography>
       </Box>
     );
-  if (isLoadingNews)
-    return (
-      <Box sx={TickerBoxStyled}>
-        <CircularProgress
-          sx={{ display: 'block', margin: '0 auto', color: loadColor }}
-        />
-      </Box>
-    );
+  }
   return (
     <>
       {stringNews && (

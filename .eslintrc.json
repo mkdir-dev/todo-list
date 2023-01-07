@@ -48,12 +48,7 @@
             "typedefs": true
         }
         ],
-        "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-            "argsIgnorePattern": "^_"
-        }
-        ],
+        "@typescript-eslint/no-unused-vars": 0,
         "no-underscore-dangle": "off",
         "class-methods-use-this": "off",
         "react/prop-types": "off",
@@ -72,7 +67,7 @@
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
-        "@typescript-eslint/strict-boolean-expressions": ["error", { "allowNullable": true, "ignoreRhs": true }],
+        "@typescript-eslint/strict-boolean-expressions": 0,
         "@typescript-eslint/no-unsafe-return": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-call": "off",

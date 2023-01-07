@@ -1,63 +1,79 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Dialog,
   AppBar,
   Typography,
   Divider,
-  List,
   ListItem,
   ListItemText,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import CheckIcon from '@mui/icons-material/Check';
+
+import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
 
 import { IconBtn } from 'shared/buttons/IconBtn/IconBtn';
 import { TransitionDialog } from 'ui/TransitionDialog/TransitionDialog';
-import { appBarSettingsStyled, ToolbarSettings } from 'ui/Settings/Settings';
+import {
+  appBarSettingsStyled,
+  ListSettings,
+  ToolbarSettings,
+} from 'ui/Settings/Settings';
+import { IOSSwitch } from 'ui/Switch/Switch';
 
 import { SettingsProps } from 'typings/components/Settings';
 
 export const Settings: React.FC<SettingsProps> = ({
   isSettingsDialog,
+
+  handleShowNewsTicker,
   handleClose,
-}) => (
-  <Dialog
-    fullScreen
-    open={isSettingsDialog}
-    onClose={handleClose}
-    TransitionComponent={TransitionDialog}
-  >
-    <AppBar sx={appBarSettingsStyled}>
-      <ToolbarSettings>
-        <IconBtn label="close settings dialog" handleClick={handleClose}>
-          <CloseIcon fontSize="inherit" />
-        </IconBtn>
+}) => {
+  const isShowNewsTicker = useContext(ShowNewsTickerContext);
 
-        <Typography variant="h2" sx={{ ml: 2, flex: 1 }}>
-          settings
-        </Typography>
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    handleShowNewsTicker(event.target.checked);
+  };
 
-        <IconBtn label="save settings dialog" handleClick={handleClose}>
-          <CheckIcon fontSize="inherit" />
-        </IconBtn>
-      </ToolbarSettings>
-    </AppBar>
+  return (
+    <Dialog
+      fullScreen
+      open={isSettingsDialog}
+      onClose={handleClose}
+      TransitionComponent={TransitionDialog}
+    >
+      <AppBar sx={appBarSettingsStyled}>
+        <ToolbarSettings>
+          <Typography variant="h2" sx={{ ml: 2, flex: 1 }}>
+            settings
+          </Typography>
 
-    <List>
-      <ListItem>
-        <ListItemText primary="Phone ringtone" secondary="Titania" />
-      </ListItem>
-      <Divider />
-      <ListItem>
-        <ListItemText
-          primary="Default notification ringtone"
-          secondary="Tethys"
-        />
-      </ListItem>
-    </List>
-  </Dialog>
-);
+          <IconBtn label="close settings dialog" handleClick={handleClose}>
+            <CloseIcon fontSize="inherit" />
+          </IconBtn>
+        </ToolbarSettings>
+      </AppBar>
 
-/*
+      <ListSettings>
+        <ListItem>
+          <ListItemText primary="News" secondary="Show news ticker" />
+          <IOSSwitch checked={isShowNewsTicker} onChange={handleChange} />
+        </ListItem>
 
-*/
+        <Divider />
+
+        <ListItem>
+          <ListItemText primary="Phone ringtone" secondary="Titania" />
+        </ListItem>
+
+        <Divider />
+
+        <ListItem>
+          <ListItemText
+            primary="Default notification ringtone"
+            secondary="Tethys"
+          />
+        </ListItem>
+      </ListSettings>
+    </Dialog>
+  );
+};

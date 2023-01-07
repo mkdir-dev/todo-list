@@ -6,7 +6,11 @@ import { HeaderBox } from 'ui/Header/Header';
 import { IconBtn } from 'shared/buttons/IconBtn/IconBtn';
 import { Settings } from 'components/Settings/Settings';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  handleShowNewsTicker: (boolean: React.SetStateAction<boolean>) => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ handleShowNewsTicker }) => {
   const [isSettingsDialog, setSettingsDialog] = useState(false);
 
   return (
@@ -26,6 +30,7 @@ export const Header: React.FC = () => {
 
       <Settings
         isSettingsDialog={isSettingsDialog}
+        handleShowNewsTicker={handleShowNewsTicker}
         handleClose={() => {
           setSettingsDialog(false);
         }}
