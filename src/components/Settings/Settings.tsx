@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useQueryClient } from 'react-query';
 import {
   Dialog,
   AppBar,
@@ -29,9 +30,13 @@ export const Settings: React.FC<SettingsProps> = ({
   handleClose,
 }) => {
   const isShowNewsTicker = useContext(ShowNewsTickerContext);
+  const queryClient = useQueryClient();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChangeSwitch = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     handleShowNewsTicker(event.target.checked);
+    queryClient.invalidateQueries('dataNews');
   };
 
   return (
@@ -56,7 +61,7 @@ export const Settings: React.FC<SettingsProps> = ({
       <ListSettings>
         <ListItem>
           <ListItemText primary="News" secondary="Show news ticker" />
-          <IOSSwitch checked={isShowNewsTicker} onChange={handleChange} />
+          <IOSSwitch checked={isShowNewsTicker} onChange={handleChangeSwitch} />
         </ListItem>
 
         <Divider />
