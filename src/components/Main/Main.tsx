@@ -39,14 +39,12 @@ export const Main: React.FC = () => {
         </MainListItem>
 
         {tasksDefault
-          .filter((item) => item.date !== today)
+          .filter((item) => Date.parse(today) < Date.parse(item.date))
           .map((task, index) => {
             return (
-              <>
-                <ListItem key={`${task.uuid}-${index}`}>
-                  <FutureCard tasks={task} />
-                </ListItem>
-              </>
+              <ListItem key={`${task.uuid}-${index}`}>
+                <FutureCard tasks={task} />
+              </ListItem>
             );
           })}
       </List>

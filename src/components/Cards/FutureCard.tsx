@@ -20,7 +20,6 @@ import { TasksCardProps } from 'typings/components/Cards';
 export const FutureCard: React.FC<TasksCardProps> = ({ tasks }) => {
   const [expanded, setExpanded] = React.useState(false);
 
-  const today = format(new Date(), 'yyyy-MM-dd');
   const tomorrow = format(
     new Date().setDate(new Date().getDate() + 1),
     'yyyy-MM-dd'
@@ -29,9 +28,7 @@ export const FutureCard: React.FC<TasksCardProps> = ({ tasks }) => {
 
   let titleTask = '';
 
-  if (tasks.date === today) {
-    titleTask += 'Today';
-  } else if (tasks.date === tomorrow) {
+  if (tasks.date === tomorrow) {
     titleTask += 'Tomorrow';
   } else {
     titleTask += date;
