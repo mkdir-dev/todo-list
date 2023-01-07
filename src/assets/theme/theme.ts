@@ -34,54 +34,34 @@ export const theme = createTheme({
     h1: {
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '48px',
-      lineHeight: '64px',
-      textTransform: 'capitalize',
-      color: mainColor,
-
-      '@media(max-width:768px)': {
-        fontSize: '36px',
-        lineHeight: '43px',
-      },
-    },
-    h2: {
-      fontStyle: 'normal',
-      fontWeight: 400,
       fontSize: '36px',
       lineHeight: '43px',
       textTransform: 'capitalize',
       color: mainColor,
-
-      '@media(max-width:768px)': {
-        fontSize: '24px',
-        lineHeight: '28px',
-      },
+    },
+    h2: {
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '24px',
+      lineHeight: '28px',
+      textTransform: 'capitalize',
+      color: mainColor,
     },
     h3: {
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '28px',
-      lineHeight: '36px',
+      fontSize: '20px',
+      lineHeight: '26px',
       textTransform: 'capitalize',
       color: mainColor,
-
-      '@media(max-width:768px)': {
-        fontSize: '20px',
-        lineHeight: '26px',
-      },
     },
     subtitle1: {
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '18px',
-      lineHeight: '24px',
+      fontSize: '14px',
+      lineHeight: '17px',
       textTransform: 'capitalize',
       color: subtitleColor,
-
-      '@media(max-width:768px)': {
-        fontSize: '14px',
-        lineHeight: '17px',
-      },
     },
   },
 });

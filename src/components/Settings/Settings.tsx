@@ -65,19 +65,6 @@ export const Settings: React.FC<SettingsProps> = ({
         </ListItem>
 
         <Divider />
-
-        <ListItem>
-          <ListItemText primary="Phone ringtone" secondary="Titania" />
-        </ListItem>
-
-        <Divider />
-
-        <ListItem>
-          <ListItemText
-            primary="Default notification ringtone"
-            secondary="Tethys"
-          />
-        </ListItem>
       </ListSettings>
     </Dialog>
   );

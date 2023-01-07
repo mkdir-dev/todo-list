@@ -2,7 +2,7 @@ import { SystemStyleObject, Theme } from '@mui/system';
 import { grayBlueColor } from 'assets/styles/colors';
 
 export const TickerBoxStyled: SystemStyleObject<Theme> = {
-  position: 'absolute',
+  position: 'fixed',
   bottom: '20px',
   left: 0,
   width: '100%',

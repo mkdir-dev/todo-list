@@ -48,7 +48,7 @@ export const Ticker: React.FC = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            <Typography variant="subtitle1" sx={{ color: mainColor }}>
+            <Typography variant="h3" sx={{ color: mainColor }}>
               {stringNews}
             </Typography>
           </Box>
