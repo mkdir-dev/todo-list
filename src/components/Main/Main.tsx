@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { format } from 'date-fns';
-
 import { Box, Typography, Checkbox, List, ListItem } from '@mui/material';
 
-import { MainBox, MainListItem } from 'ui/Main/Main';
-import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
-import { Tasks, tasksDefault } from 'utils/constants';
 import { TodayTasksCard } from 'components/Cards/TodayTasksCard';
 import { FutureCard } from 'components/Cards/FutureCard';
+import { MainBox, MainListItem } from 'ui/Main/Main';
+import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
+import { tasksDefault } from 'utils/constants';
+import { Tasks } from 'typings/utils/constants';
 
 export const Main: React.FC = () => {
   const [isTodayCard, setTodayCard] = useState<boolean>(false);

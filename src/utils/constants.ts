@@ -4,34 +4,7 @@ import {
   loadColor,
   errColor,
 } from 'assets/styles/colors';
-
-export interface Task {
-  id: string;
-  priority: 'normal' | 'important' | 'urgent' | 'critical';
-  title: string;
-  description: string;
-  done: boolean;
-}
-
-export interface Tasks {
-  uuid: string;
-  date: string;
-  tasks: Task[];
-}
-
-export interface PriorityParams {
-  id: number;
-  title: 'normal' | 'important' | 'urgent' | 'critical';
-  value: 'normal' | 'important' | 'urgent' | 'critical';
-  color: string;
-}
-
-export interface Priority {
-  normal: PriorityParams;
-  important: PriorityParams;
-  urgent: PriorityParams;
-  critical: PriorityParams;
-}
+import { Tasks, Priority, PriorityParams } from 'typings/utils/constants';
 
 export const tasksDefault: Tasks[] = [
   {
@@ -127,26 +100,53 @@ export const tasksDefault: Tasks[] = [
 export const priority: Priority = {
   normal: {
     id: 1,
-    title: 'normal',
+    title: 'Normal',
     value: 'normal',
     color: grayColor,
   },
   important: {
     id: 2,
-    title: 'important',
+    title: 'Important',
     value: 'important',
     color: blueColor,
   },
   urgent: {
     id: 3,
-    title: 'urgent',
+    title: 'Urgent',
     value: 'urgent',
     color: loadColor,
   },
   critical: {
     id: 4,
-    title: 'critical',
+    title: 'Critical',
     value: 'critical',
     color: errColor,
   },
 };
+
+export const priorityParams: PriorityParams[] = [
+  {
+    id: 1,
+    title: 'Normal',
+    value: 'normal',
+    color: grayColor,
+  },
+  {
+    id: 2,
+    title: 'Important',
+    value: 'important',
+    color: blueColor,
+  },
+  {
+    id: 3,
+    title: 'Urgent',
+    value: 'urgent',
+    color: loadColor,
+  },
+  {
+    id: 4,
+    title: 'Critical',
+    value: 'critical',
+    color: errColor,
+  },
+];
