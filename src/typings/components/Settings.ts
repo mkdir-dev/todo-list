@@ -4,6 +4,6 @@ export interface SettingsProps {
   isSettingsDialog: boolean;
 
   handleClose: () => void;
-  handleTaskState: (value: React.SetStateAction<Tasks[]>) => void;
+  handleTaskState: (value: Tasks[]) => void;
   handleShowNewsTicker: (boolean: boolean) => void;
 }

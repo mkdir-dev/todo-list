@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { TaskContext } from 'contexts/TaskContext';
 import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
@@ -14,8 +14,11 @@ export const App: React.FC = () => {
   const [taskState, setTaskState] = useState<Tasks[]>([]);
   const [isShowNewsTicker, setShowNewsTicker] = useState<boolean>(true);
 
-  const handleTaskState = (value: React.SetStateAction<Tasks[]>): void => {
-    setTaskState(value);
+  const handleTaskState = (value: Tasks[]): void => {
+    const sotrArr = value.sort((x, y) => (x.date > y.date ? 1 : -1));
+
+    setTaskState(sotrArr);
+    localStorage.setItem('tasksStorage', JSON.stringify(sotrArr));
   };
 
   const handleShowNewsTicker = (
@@ -23,6 +26,14 @@ export const App: React.FC = () => {
   ): void => {
     setShowNewsTicker(boolean);
   };
+
+  useEffect(() => {
+    const tasksStorage = localStorage.getItem('tasksStorage');
+
+    if (taskState.length === 0 && tasksStorage) {
+      setTaskState(JSON.parse(tasksStorage));
+    }
+  }, [taskState]);
 
   return (
     <TaskContext.Provider value={taskState}>
@@ -33,7 +44,7 @@ export const App: React.FC = () => {
             handleShowNewsTicker={handleShowNewsTicker}
           />
 
-          <Main />
+          <Main handleTaskState={handleTaskState} />
 
           {isShowNewsTicker && <Ticker />}
         </AppContainer>

@@ -1,17 +1,13 @@
 import { useMutation } from 'react-query';
 import { v4 as uuidv4 } from 'uuid';
 
-import {
-  AddTaskHook,
-  AddTaskHookData,
-  TaskData,
-} from 'typings/hooks/useAddTask';
+import { TaskHook, AddTaskHookData, TaskData } from 'typings/hooks/useAddTask';
 import { Task, Tasks } from 'typings/utils/constants';
 
 export const useAddTask = ({
   taskState,
   onSuccess,
-}: AddTaskHook): AddTaskHookData => {
+}: TaskHook): AddTaskHookData => {
   const { mutate, isLoading } = useMutation(
     async (values: TaskData) => {
       let arr: Tasks[] = [];

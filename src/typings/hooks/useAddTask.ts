@@ -1,4 +1,4 @@
-import { Tasks } from 'typings/utils/constants';
+import { Task, Tasks } from 'typings/utils/constants';
 
 export interface TaskData {
   title: string;
@@ -7,13 +7,17 @@ export interface TaskData {
   date: string;
 }
 
-export interface AddTaskHook {
+export interface TaskHook {
   taskState: Tasks[];
   onSuccess: (data: Tasks[]) => void;
 }
 
 export interface AddTaskHookData {
-  // handleAddTask: (values: TaskData) => Promise<void>;
   handleAddTask: (values: TaskData) => void;
   isLoadingAddTask: boolean;
+}
+
+export interface CheckTaskTaskHookData {
+  handleCheckTask: (values: Task) => void;
+  isLoadingCheckTask: boolean;
 }

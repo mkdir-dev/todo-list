@@ -17,7 +17,11 @@ import { CardTasks, dividerStyled } from 'ui/Cards/Cards';
 import { grayColor } from 'assets/styles/colors';
 import { TasksCardProps } from 'typings/components/Cards';
 
-export const FutureCard: React.FC<TasksCardProps> = ({ tasks, todayTasks }) => {
+export const FutureCard: React.FC<TasksCardProps> = ({
+  tasks,
+  todayTasks,
+  handleTaskState,
+}) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const tomorrow = format(
@@ -63,8 +67,14 @@ export const FutureCard: React.FC<TasksCardProps> = ({ tasks, todayTasks }) => {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent sx={{ paddingLeft: 0, paddingRight: 0 }}>
-          <TasksCard tasks={tasks} todayTasks={todayTasks} />
+        <CardContent
+          sx={{ padding: '8px 12px 0', '&:last-child': { paddingBottom: 0 } }}
+        >
+          <TasksCard
+            tasks={tasks}
+            todayTasks={todayTasks}
+            handleTaskState={handleTaskState}
+          />
         </CardContent>
       </Collapse>
     </CardTasks>

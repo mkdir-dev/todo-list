@@ -96,6 +96,7 @@ export const Settings: React.FC<SettingsProps> = ({
         handleClose={() => {
           setAddTask(false);
         }}
+        handleCloseSettings={handleClose}
         handleTaskState={handleTaskState}
       />
     </>

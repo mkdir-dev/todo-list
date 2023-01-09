@@ -18,7 +18,11 @@ import { MainBox, MainListItem } from 'ui/Main/Main';
 import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
 import { Tasks } from 'typings/utils/constants';
 
-export const Main: React.FC = () => {
+interface MainProps {
+  handleTaskState: (value: Tasks[]) => void;
+}
+
+export const Main: React.FC<MainProps> = ({ handleTaskState }) => {
   const taskState = useContext(TaskContext);
   const [isTodayCard, setTodayCard] = useState<boolean>(false);
 
@@ -31,7 +35,13 @@ export const Main: React.FC = () => {
     <MainBox component="main">
       <List>
         <MainListItem>
-          <Card sx={{ width: '100%', backgroundColor: 'transparent' }}>
+          <Card
+            sx={{
+              width: '100%',
+              backgroundColor: 'transparent',
+              boxShadow: 'none',
+            }}
+          >
             <CardActions
               sx={{ padding: 0, cursor: tasksToday ? 'pointer' : 'default' }}
               onClick={() => {
@@ -55,8 +65,14 @@ export const Main: React.FC = () => {
               timeout="auto"
               unmountOnExit
             >
-              <CardContent sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                {tasksToday && <TasksCard tasks={tasksToday} todayTasks />}
+              <CardContent sx={{ padding: '24px' }}>
+                {tasksToday && (
+                  <TasksCard
+                    tasks={tasksToday}
+                    todayTasks
+                    handleTaskState={handleTaskState}
+                  />
+                )}
               </CardContent>
             </Collapse>
           </Card>
@@ -67,7 +83,11 @@ export const Main: React.FC = () => {
           .map((task) => {
             return (
               <ListItem key={task.uuid}>
-                <FutureCard tasks={task} todayTasks={false} />
+                <FutureCard
+                  tasks={task}
+                  todayTasks={false}
+                  handleTaskState={handleTaskState}
+                />
               </ListItem>
             );
           })}

@@ -41,12 +41,14 @@ import { datePrevalidator } from 'utils/helpers/dateHelpers';
 interface AddTaskProps {
   open: boolean;
   handleClose: () => void;
-  handleTaskState: (value: React.SetStateAction<Tasks[]>) => void;
+  handleCloseSettings: () => void;
+  handleTaskState: (value: Tasks[]) => void;
 }
 
 export const AddTask: React.FC<AddTaskProps> = ({
   open,
   handleClose,
+  handleCloseSettings,
   handleTaskState,
 }) => {
   const taskState = useContext(TaskContext);
@@ -74,6 +76,11 @@ export const AddTask: React.FC<AddTaskProps> = ({
     onSuccess: (data) => {
       handleTaskState(data);
       handleClose();
+
+      setTimeout(() => {
+        handleCloseSettings();
+      }, 100);
+
       reset();
       setDateTask(null);
     },

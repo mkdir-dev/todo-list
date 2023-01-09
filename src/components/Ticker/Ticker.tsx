@@ -41,7 +41,7 @@ export const Ticker: React.FC = () => {
   return (
     <>
       {stringNews && (
-        <Box sx={TickerBoxStyled}>
+        <Box component="aside" sx={TickerBoxStyled}>
           <Box
             sx={{
               animation: `text ${stringNews.length / 10}s infinite linear`,

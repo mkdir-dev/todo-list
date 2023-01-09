@@ -8,7 +8,7 @@ import { Settings } from 'components/Settings/Settings';
 import { Tasks } from 'typings/utils/constants';
 
 interface HeaderProps {
-  handleTaskState: (value: React.SetStateAction<Tasks[]>) => void;
+  handleTaskState: (value: Tasks[]) => void;
   handleShowNewsTicker: (boolean: React.SetStateAction<boolean>) => void;
 }
 
