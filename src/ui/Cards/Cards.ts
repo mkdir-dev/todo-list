@@ -1,10 +1,10 @@
 import { SystemStyleObject, Theme } from '@mui/system';
-import { List, Card, Box } from '@mui/material';
+import { Card, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { cardBgColor, boxShadow } from 'assets/styles/colors';
 
-export const ListTodayCard = styled(List)({
+export const listStyled: SystemStyleObject<Theme> = {
   '&': {
     width: '100%',
     marginTop: '15px',
@@ -13,7 +13,7 @@ export const ListTodayCard = styled(List)({
     boxShadow,
     borderRadius: '40px',
   },
-});
+};
 
 export const CardTasks = styled(Card)({
   '&': {

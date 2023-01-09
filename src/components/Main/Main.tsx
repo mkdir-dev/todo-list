@@ -1,9 +1,18 @@
 import React, { useState, useContext } from 'react';
 import { format } from 'date-fns';
-import { Box, Typography, Checkbox, List, ListItem } from '@mui/material';
+import {
+  Typography,
+  Checkbox,
+  List,
+  ListItem,
+  Card,
+  CardActions,
+  CardContent,
+  Collapse,
+} from '@mui/material';
 
 import { TaskContext } from 'contexts/TaskContext';
-import { TodayTasksCard } from 'components/Cards/TodayTasksCard';
+import { TasksCard } from 'components/Cards/TasksCard';
 import { FutureCard } from 'components/Cards/FutureCard';
 import { MainBox, MainListItem } from 'ui/Main/Main';
 import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
@@ -22,29 +31,43 @@ export const Main: React.FC = () => {
     <MainBox component="main">
       <List>
         <MainListItem>
-          <Box sx={{ display: 'flex' }}>
-            <Checkbox
-              sx={{ mr: '10px', padding: 0 }}
-              checked={isTodayCard}
-              checkedIcon={<CheckedIcon />}
-              icon={<CheckboxIcon />}
-              disabled={!tasksToday}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setTodayCard(event.target.checked);
+          <Card sx={{ width: '100%', backgroundColor: 'transparent' }}>
+            <CardActions
+              sx={{ padding: 0, cursor: tasksToday ? 'pointer' : 'default' }}
+              onClick={() => {
+                if (tasksToday) setTodayCard(!isTodayCard);
               }}
-            />
-            <Typography variant="h2">today tasks:</Typography>
-          </Box>
-
-          {isTodayCard && tasksToday && <TodayTasksCard tasks={tasksToday} />}
+            >
+              <Checkbox
+                sx={{ mr: '10px', padding: 0 }}
+                checked={isTodayCard}
+                checkedIcon={<CheckedIcon />}
+                icon={<CheckboxIcon />}
+                disabled={!tasksToday}
+                onClick={() => {
+                  if (tasksToday) setTodayCard(!isTodayCard);
+                }}
+              />
+              <Typography variant="h2">today tasks:</Typography>
+            </CardActions>
+            <Collapse
+              in={isTodayCard && !!tasksToday}
+              timeout="auto"
+              unmountOnExit
+            >
+              <CardContent sx={{ paddingLeft: 0, paddingRight: 0 }}>
+                {tasksToday && <TasksCard tasks={tasksToday} todayTasks />}
+              </CardContent>
+            </Collapse>
+          </Card>
         </MainListItem>
 
         {taskState
           .filter((item) => Date.parse(today) < Date.parse(item.date))
-          .map((task, index) => {
+          .map((task) => {
             return (
-              <ListItem key={`${task.uuid}-${index}`}>
-                <FutureCard tasks={task} />
+              <ListItem key={task.uuid}>
+                <FutureCard tasks={task} todayTasks={false} />
               </ListItem>
             );
           })}

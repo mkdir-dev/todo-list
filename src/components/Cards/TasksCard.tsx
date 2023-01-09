@@ -2,18 +2,15 @@ import React from 'react';
 import { Typography, List, ListItem, Divider } from '@mui/material';
 
 import { IOSSwitch } from 'ui/Switch/Switch';
-import { BoxCard, dividerStyled } from 'ui/Cards/Cards';
+import { BoxCard, listStyled, dividerStyled } from 'ui/Cards/Cards';
 import { priority } from 'utils/constants';
 import { mainColor } from 'assets/styles/colors';
 import { TasksCardProps } from 'typings/components/Cards';
 
-export const TasksCard: React.FC<TasksCardProps> = ({ tasks }) => (
-  <List>
+export const TasksCard: React.FC<TasksCardProps> = ({ tasks, todayTasks }) => (
+  <List sx={() => (todayTasks ? listStyled : {})}>
     {tasks.tasks.map((task, index) => (
-      <ListItem
-        key={`${task.id}-${index}`}
-        sx={{ color: mainColor }}
-      >
+      <ListItem key={`${task.id}-${index}`} sx={{ color: mainColor }}>
         <Divider
           orientation="vertical"
           flexItem

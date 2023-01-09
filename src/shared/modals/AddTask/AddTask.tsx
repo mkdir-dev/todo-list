@@ -75,6 +75,7 @@ export const AddTask: React.FC<AddTaskProps> = ({
       handleTaskState(data);
       handleClose();
       reset();
+      setDateTask(null);
     },
   });
 
