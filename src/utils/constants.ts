@@ -7,9 +7,10 @@ import {
 import { Tasks, Priority, PriorityParams } from 'typings/utils/constants';
 
 export const tasksDefault: Tasks[] = [
+  /*
   {
     uuid: '01',
-    date: '2023-01-07',
+    date: '2023-01-09',
     tasks: [
       {
         id: '2023-01-07-01',
@@ -43,7 +44,7 @@ export const tasksDefault: Tasks[] = [
   },
   {
     uuid: '02',
-    date: '2023-01-08',
+    date: '2023-01-10',
     tasks: [
       {
         id: '2023-01-08-01',
@@ -54,7 +55,7 @@ export const tasksDefault: Tasks[] = [
       },
       {
         id: '2023-01-08-02',
-        priority: 'important',
+        priority: 'critical',
         title: 'Goceries For Dinner',
         description: 'Lorem Ipsum Dolor Sit met...',
         done: false,
@@ -70,7 +71,7 @@ export const tasksDefault: Tasks[] = [
   },
   {
     uuid: '03',
-    date: '2023-01-09',
+    date: '2023-01-11',
     tasks: [
       {
         id: '2023-01-09-01',
@@ -88,13 +89,14 @@ export const tasksDefault: Tasks[] = [
       },
       {
         id: '2023-01-09-03',
-        priority: 'urgent',
+        priority: 'critical',
         title: 'Fix Dad’s iPad',
         description: 'Lorem Ipsum Dolor Sit met...',
         done: false,
       },
     ],
   },
+  */
 ];
 
 export const priority: Priority = {

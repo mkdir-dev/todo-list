@@ -29,10 +29,12 @@ import { AddTask } from 'shared/modals/AddTask/AddTask';
 export const Settings: React.FC<SettingsProps> = ({
   isSettingsDialog,
 
-  handleShowNewsTicker,
   handleClose,
+  handleTaskState,
+  handleShowNewsTicker,
 }) => {
   const isShowNewsTicker = useContext(ShowNewsTickerContext);
+
   const [isAddTask, setAddTask] = useState<boolean>(false);
 
   const queryClient = useQueryClient();
@@ -94,6 +96,7 @@ export const Settings: React.FC<SettingsProps> = ({
         handleClose={() => {
           setAddTask(false);
         }}
+        handleTaskState={handleTaskState}
       />
     </>
   );

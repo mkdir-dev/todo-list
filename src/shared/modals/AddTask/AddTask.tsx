@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { isSameDay } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { useForm } from 'react-hook-form';
@@ -18,7 +18,6 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { PickersDayProps } from '@mui/x-date-pickers/PickersDay';
-
 import CloseIcon from '@mui/icons-material/Close';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
@@ -33,28 +32,32 @@ import {
   textAreaFormStyle,
 } from 'ui/Input/Input';
 import { mainBgColor, mainColor } from 'assets/styles/colors';
+import { TaskContext } from 'contexts/TaskContext';
 import { useAddTask } from 'hooks/useAddTask';
 import { priorityParams } from 'utils/constants';
-import { PriorityParams } from 'typings/utils/constants';
+import { PriorityParams, Tasks } from 'typings/utils/constants';
 import { datePrevalidator } from 'utils/helpers/dateHelpers';
 
 interface AddTaskProps {
   open: boolean;
   handleClose: () => void;
+  handleTaskState: (value: React.SetStateAction<Tasks[]>) => void;
 }
 
-export const AddTask: React.FC<AddTaskProps> = ({ open, handleClose }) => {
+export const AddTask: React.FC<AddTaskProps> = ({
+  open,
+  handleClose,
+  handleTaskState,
+}) => {
+  const taskState = useContext(TaskContext);
   const [dateTask, setDateTask] = useState<Date | null>(null);
-  const { isLoadingAddTask, handleAddTask } = useAddTask();
 
   const {
     getValues,
     setValue,
     register,
-    // reset,
-    formState: { errors, isDirty, isValid },
-    // setError,
-    // handleSubmit,
+    reset,
+    formState: { errors, isValid },
   } = useForm<TaskParams>({
     mode: 'onTouched',
     resolver: zodResolver(validationAddTask),
@@ -66,6 +69,15 @@ export const AddTask: React.FC<AddTaskProps> = ({ open, handleClose }) => {
     },
   });
 
+  const { isLoadingAddTask, handleAddTask } = useAddTask({
+    taskState,
+    onSuccess: (data) => {
+      handleTaskState(data);
+      handleClose();
+      reset();
+    },
+  });
+
   const rendersPickerDateBirth = (
     date: Date,
     _selectedDates: Array<Date | null>,
@@ -73,13 +85,7 @@ export const AddTask: React.FC<AddTaskProps> = ({ open, handleClose }) => {
   ): React.ReactElement => {
     const valueToday = dateTask !== null ? isSameDay(date, dateTask) : false;
 
-    return (
-      <DatePickerDay
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...pickersDayProps}
-        isToday={valueToday}
-      />
-    );
+    return <DatePickerDay {...pickersDayProps} isToday={valueToday} />;
   };
 
   return (
@@ -162,10 +168,10 @@ export const AddTask: React.FC<AddTaskProps> = ({ open, handleClose }) => {
                 _event: React.SyntheticEvent,
                 newValue: PriorityParams | null
               ) => {
-                setValue('priority', newValue?.value ?? '', {
+                setValue('priority', newValue?.value ?? 'normal', {
                   shouldDirty: true,
                 });
-                register('priority', { value: newValue?.value ?? '' });
+                register('priority', { value: newValue?.value ?? 'normal' });
               }}
               renderInput={(params) => (
                 <TextField
@@ -190,7 +196,7 @@ export const AddTask: React.FC<AddTaskProps> = ({ open, handleClose }) => {
             />
 
             <DesktopDatePicker
-              label="Дата рождения"
+              label="Date"
               value={dateTask}
               renderDay={rendersPickerDateBirth}
               PopperProps={{ sx: datePickerPopperStyled }}
@@ -249,7 +255,7 @@ export const AddTask: React.FC<AddTaskProps> = ({ open, handleClose }) => {
           <Button onClick={handleClose}>Cancel</Button>
           <Button
             type="submit"
-            disabled={isLoadingAddTask || !isDirty || !isValid}
+            disabled={isLoadingAddTask || !isValid}
             onClick={() => {
               const values = getValues();
               handleAddTask(values);

@@ -1,5 +1,9 @@
+import { Tasks } from 'typings/utils/constants';
+
 export interface SettingsProps {
   isSettingsDialog: boolean;
-  handleShowNewsTicker: (boolean: boolean) => void;
+
   handleClose: () => void;
+  handleTaskState: (value: React.SetStateAction<Tasks[]>) => void;
+  handleShowNewsTicker: (boolean: boolean) => void;
 }

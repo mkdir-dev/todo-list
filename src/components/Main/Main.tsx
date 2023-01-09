@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { format } from 'date-fns';
 import { Box, Typography, Checkbox, List, ListItem } from '@mui/material';
 
+import { TaskContext } from 'contexts/TaskContext';
 import { TodayTasksCard } from 'components/Cards/TodayTasksCard';
 import { FutureCard } from 'components/Cards/FutureCard';
 import { MainBox, MainListItem } from 'ui/Main/Main';
 import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
-import { tasksDefault } from 'utils/constants';
 import { Tasks } from 'typings/utils/constants';
 
 export const Main: React.FC = () => {
+  const taskState = useContext(TaskContext);
   const [isTodayCard, setTodayCard] = useState<boolean>(false);
 
   const today = format(new Date(), 'yyyy-MM-dd');
-  const tasksToday: Tasks | undefined = tasksDefault.find(
+  const tasksToday: Tasks | undefined = taskState.find(
     (item) => item.date === today
   );
 
@@ -38,7 +39,7 @@ export const Main: React.FC = () => {
           {isTodayCard && tasksToday && <TodayTasksCard tasks={tasksToday} />}
         </MainListItem>
 
-        {tasksDefault
+        {taskState
           .filter((item) => Date.parse(today) < Date.parse(item.date))
           .map((task, index) => {
             return (
