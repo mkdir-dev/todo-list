@@ -23,7 +23,7 @@ import {
 import { IOSSwitch } from 'ui/Switch/Switch';
 
 import { SettingsProps } from 'typings/components/Settings';
-import { successColor } from 'assets/styles/colors';
+import { mainColor, successColor } from 'assets/styles/colors';
 import { AddTask } from 'shared/modals/AddTask/AddTask';
 
 export const Settings: React.FC<SettingsProps> = ({
@@ -50,6 +50,9 @@ export const Settings: React.FC<SettingsProps> = ({
     <>
       <Dialog
         fullScreen
+        sx={{
+          '& .MuiDialog-paper': { backgroundColor: mainColor },
+        }}
         open={isSettingsDialog}
         onClose={handleClose}
         TransitionComponent={TransitionDialog}

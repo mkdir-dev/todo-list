@@ -7,7 +7,6 @@ import {
   Box,
   TextField,
   Autocomplete,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -37,6 +36,7 @@ import { useAddTask } from 'hooks/useAddTask';
 import { priorityParams } from 'utils/constants';
 import { PriorityParams, Tasks } from 'typings/utils/constants';
 import { datePrevalidator } from 'utils/helpers/dateHelpers';
+import { ActionCancelBtn, ActionConfirmBtn } from 'ui/Button/Button';
 
 interface AddTaskProps {
   open: boolean;
@@ -259,18 +259,28 @@ export const AddTask: React.FC<AddTaskProps> = ({
           </Box>
         </DialogContent>
 
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button
+        <DialogActions sx={{ padding: '20px' }}>
+          <ActionCancelBtn
+            variant="outlined"
+            size="large"
+            disabled={isLoadingAddTask}
+            onClick={handleClose}
+          >
+            Cancel
+          </ActionCancelBtn>
+          <ActionConfirmBtn
             type="submit"
+            variant="outlined"
+            size="large"
+            sx={{ color: 'green' }}
             disabled={isLoadingAddTask || !isValid}
             onClick={() => {
               const values = getValues();
               handleAddTask(values);
             }}
           >
-            Subscribe
-          </Button>
+            Confirm
+          </ActionConfirmBtn>
         </DialogActions>
       </Dialog>
     </LocalizationProvider>
