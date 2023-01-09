@@ -1,26 +1,12 @@
 import { useMutation } from 'react-query';
-// import { format } from 'date-fns';
 import { v4 as uuidv4 } from 'uuid';
 
+import {
+  AddTaskHook,
+  AddTaskHookData,
+  TaskData,
+} from 'typings/hooks/useAddTask';
 import { Task, Tasks } from 'typings/utils/constants';
-
-export interface TaskData {
-  title: string;
-  description: string;
-  priority: 'normal' | 'important' | 'urgent' | 'critical';
-  date: string;
-}
-
-export interface AddTaskHook {
-  taskState: Tasks[];
-  onSuccess: (data: Tasks[]) => void;
-}
-
-export interface AddTaskHookData {
-  // handleAddTask: (values: TaskData) => Promise<void>;
-  handleAddTask: (values: TaskData) => void;
-  isLoadingAddTask: boolean;
-}
 
 export const useAddTask = ({
   taskState,
