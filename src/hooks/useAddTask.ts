@@ -34,6 +34,7 @@ export const useAddTask = ({
 
       const task: Task = {
         id,
+        date: values.date,
         priority: values.priority,
         title: values.title,
         description: values.description,
@@ -48,7 +49,6 @@ export const useAddTask = ({
 
       if (taskState.length === 0) {
         arr.push(newTasksList);
-
         return arr;
       }
 

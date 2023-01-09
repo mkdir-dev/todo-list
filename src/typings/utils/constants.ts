@@ -1,5 +1,6 @@
 export interface Task {
   id: string;
+  date: string;
   priority: 'normal' | 'important' | 'urgent' | 'critical';
   title: string;
   description: string;

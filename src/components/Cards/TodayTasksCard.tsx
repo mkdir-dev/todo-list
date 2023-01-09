@@ -10,7 +10,10 @@ import { TasksCardProps } from 'typings/components/Cards';
 export const TodayTasksCard: React.FC<TasksCardProps> = ({ tasks }) => (
   <ListTodayCard>
     {tasks.tasks.map((task, index) => (
-      <ListItem key={`${task.id}-${index}`} sx={{ color: mainColor }}>
+      <ListItem
+        key={`${task.id}-${index}`}
+        sx={{ color: mainColor }}
+      >
         <Divider
           orientation="vertical"
           flexItem
