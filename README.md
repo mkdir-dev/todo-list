@@ -7,8 +7,8 @@ To run the project locally, you need:
 1. you need to get the key in https://newsapi.org/
 2. create an environment variable at the root of the project with the content:
 
-   REACT_APP_API_URL=https://newsapi.org/v2
-   REACT_APP_API_KEY=your key
+   * REACT_APP_API_URL=https://newsapi.org/v2
+   * REACT_APP_API_KEY=your key
 
 3. clone repo - git clone git@github.com:mkdir-dev/breakingbad.git
 4. install dependencies - npm i
