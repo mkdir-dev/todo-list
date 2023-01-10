@@ -13,3 +13,6 @@ To run the project locally, you need:
 3. clone repo - git clone git@github.com:mkdir-dev/breakingbad.git
 4. install dependencies - npm i
 5. run - npm run start
+
+You can see the test version of the application:
+https://mkdir-dev.github.io/todo-list/
