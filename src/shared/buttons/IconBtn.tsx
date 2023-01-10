@@ -2,8 +2,7 @@ import React from 'react';
 import { IconButton } from '@mui/material';
 
 import { mainColor } from 'assets/styles/colors';
-
-import { IconBtnProps } from 'typings/shared/buttons/buttons';
+import { IconBtnProps } from 'typings/shared/buttonsTypes';
 
 export const IconBtn: React.FC<IconBtnProps> = ({
   label,

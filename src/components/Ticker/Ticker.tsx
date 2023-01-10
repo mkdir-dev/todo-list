@@ -1,21 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Box } from '@mui/system';
 import { CircularProgress, Typography } from '@mui/material';
 
 import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
-
-import { TickerBoxStyled } from 'ui/Ticker/Ticker';
 import { useGetNews } from 'hooks/useGetNews';
+import { TickerBoxStyled } from 'ui/Ticker/Ticker';
 import { errColor, loadColor, mainColor } from 'assets/styles/colors';
 
 export const Ticker: React.FC = () => {
   const isShowNewsTicker = useContext(ShowNewsTickerContext);
+  const [stringNews, setStringNews] = useState<string>('');
 
   const { NewsData, isLoadingNews, isErrorNews } = useGetNews({
     isGetNews: isShowNewsTicker,
   });
 
-  const stringNews = NewsData?.map((news) => news.title).join(' * * * ');
+  useEffect(() => {
+    if (isShowNewsTicker && NewsData) {
+      console.log('useEffect');
+      setStringNews(NewsData.map((news) => news.title).join(' * * * '));
+    }
+  }, [NewsData, isShowNewsTicker]);
 
   if (isLoadingNews) {
     return (

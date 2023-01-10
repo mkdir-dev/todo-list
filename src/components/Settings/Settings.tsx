@@ -12,8 +12,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 
 import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
-
-import { IconBtn } from 'shared/buttons/IconBtn/IconBtn';
+import { AddTaskModal } from 'shared/modals/AddTaskModal/AddTaskModal';
+import { IconBtn } from 'shared/buttons/IconBtn';
 import { TransitionDialog } from 'ui/TransitionDialog/TransitionDialog';
 import {
   appBarSettingsStyled,
@@ -21,10 +21,8 @@ import {
   ToolbarSettings,
 } from 'ui/Settings/Settings';
 import { IOSSwitch } from 'ui/Switch/Switch';
-
-import { SettingsProps } from 'typings/components/Settings';
 import { mainColor, successColor } from 'assets/styles/colors';
-import { AddTask } from 'shared/modals/AddTask/AddTask';
+import { SettingsProps } from 'typings/components/componentsTypes';
 
 export const Settings: React.FC<SettingsProps> = ({
   isSettingsDialog,
@@ -33,11 +31,10 @@ export const Settings: React.FC<SettingsProps> = ({
   handleTaskState,
   handleShowNewsTicker,
 }) => {
-  const isShowNewsTicker = useContext(ShowNewsTickerContext);
-
-  const [isAddTask, setAddTask] = useState<boolean>(false);
-
   const queryClient = useQueryClient();
+
+  const isShowNewsTicker = useContext(ShowNewsTickerContext);
+  const [isAddTask, setAddTask] = useState<boolean>(false);
 
   const handleChangeSwitch = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -50,9 +47,7 @@ export const Settings: React.FC<SettingsProps> = ({
     <>
       <Dialog
         fullScreen
-        sx={{
-          '& .MuiDialog-paper': { backgroundColor: mainColor },
-        }}
+        sx={{ '& .MuiDialog-paper': { backgroundColor: mainColor } }}
         open={isSettingsDialog}
         onClose={handleClose}
         TransitionComponent={TransitionDialog}
@@ -94,7 +89,7 @@ export const Settings: React.FC<SettingsProps> = ({
         </ListSettings>
       </Dialog>
 
-      <AddTask
+      <AddTaskModal
         open={isAddTask}
         handleClose={() => {
           setAddTask(false);

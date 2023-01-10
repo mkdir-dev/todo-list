@@ -2,15 +2,10 @@ import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import { HeaderBox } from 'ui/Header/Header';
-import { IconBtn } from 'shared/buttons/IconBtn/IconBtn';
 import { Settings } from 'components/Settings/Settings';
-import { Tasks } from 'typings/utils/constants';
-
-interface HeaderProps {
-  handleTaskState: (value: Tasks[]) => void;
-  handleShowNewsTicker: (boolean: React.SetStateAction<boolean>) => void;
-}
+import { IconBtn } from 'shared/buttons/IconBtn';
+import { HeaderBox } from 'ui/Header/Header';
+import { HeaderProps } from 'typings/components/componentsTypes';
 
 export const Header: React.FC<HeaderProps> = ({
   handleTaskState,

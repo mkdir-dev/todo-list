@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 import { v4 as uuidv4 } from 'uuid';
 
 import { TaskHook, AddTaskHookData, TaskData } from 'typings/hooks/useAddTask';
-import { Task, Tasks } from 'typings/utils/constants';
+import { Task, Tasks } from 'typings/utils/constantsTypes';
 
 export const useAddTask = ({
   taskState,

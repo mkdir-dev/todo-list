@@ -1,6 +1,5 @@
 import React from 'react';
 import { format } from 'date-fns';
-
 import {
   CardContent,
   CardActions,
@@ -11,11 +10,10 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { TasksCard } from './TasksCard';
-import { ExpandMore } from 'shared/buttons/ExpandMore/ExpandMore';
+import { ExpandMore } from 'shared/buttons/ExpandMore';
 import { CardTasks, dividerStyled } from 'ui/Cards/Cards';
-
 import { grayColor } from 'assets/styles/colors';
-import { TasksCardProps } from 'typings/components/Cards';
+import { TasksCardProps } from 'typings/components/componentsTypes';
 
 export const FutureCard: React.FC<TasksCardProps> = ({
   tasks,

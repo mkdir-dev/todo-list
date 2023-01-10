@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query';
 
 import { CheckTaskTaskHookData, TaskHook } from 'typings/hooks/useAddTask';
-import { Task, Tasks } from 'typings/utils/constants';
+import { Task, Tasks } from 'typings/utils/constantsTypes';
 
 export const useCheckTask = ({
   taskState,

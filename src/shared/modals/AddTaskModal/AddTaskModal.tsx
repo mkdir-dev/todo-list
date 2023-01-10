@@ -1,8 +1,8 @@
 import React, { useContext, useState, useCallback } from 'react';
-import { isSameDay } from 'date-fns';
-import { ru } from 'date-fns/locale';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { isSameDay } from 'date-fns';
+import { ru } from 'date-fns/locale';
 import {
   Box,
   TextField,
@@ -20,7 +20,9 @@ import { PickersDayProps } from '@mui/x-date-pickers/PickersDay';
 import CloseIcon from '@mui/icons-material/Close';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-import { TaskParams, validationAddTask } from './validationAddTask';
+import { TaskContext } from 'contexts/TaskContext';
+import { useAddTask } from 'hooks/useAddTask';
+import { validationAddTask } from './validationAddTask';
 import {
   AutocompletePopper,
   autocompleteStyle,
@@ -30,22 +32,17 @@ import {
   optionAutocompleteStyle,
   textAreaFormStyle,
 } from 'ui/Input/Input';
-import { mainBgColor, mainColor } from 'assets/styles/colors';
-import { TaskContext } from 'contexts/TaskContext';
-import { useAddTask } from 'hooks/useAddTask';
-import { priorityParams } from 'utils/constants';
-import { PriorityParams, Tasks } from 'typings/utils/constants';
-import { datePrevalidator } from 'utils/helpers/dateHelpers';
 import { ActionCancelBtn, ActionConfirmBtn } from 'ui/Button/Button';
+import { datePrevalidator } from 'utils/helpers/dateHelpers';
+import { priorityParams } from 'utils/constants';
+import { mainBgColor, mainColor } from 'assets/styles/colors';
+import {
+  AddTaskModalProps,
+  ValidAddTaskParams,
+} from 'typings/shared/modalsTypes';
+import { PriorityParams } from 'typings/utils/constantsTypes';
 
-interface AddTaskProps {
-  open: boolean;
-  handleClose: () => void;
-  handleCloseSettings: () => void;
-  handleTaskState: (value: Tasks[]) => void;
-}
-
-export const AddTask: React.FC<AddTaskProps> = ({
+export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   open,
   handleClose,
   handleCloseSettings,
@@ -60,7 +57,7 @@ export const AddTask: React.FC<AddTaskProps> = ({
     register,
     reset,
     formState: { errors, isValid },
-  } = useForm<TaskParams>({
+  } = useForm<ValidAddTaskParams>({
     mode: 'onTouched',
     resolver: zodResolver(validationAddTask),
     defaultValues: {

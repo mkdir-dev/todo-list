@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { Typography, List, ListItem, Divider } from '@mui/material';
 
-import { useCheckTask } from 'hooks/useCheckTask';
-
-import { IOSSwitch } from 'ui/Switch/Switch';
 import { TaskContext } from 'contexts/TaskContext';
+import { useCheckTask } from 'hooks/useCheckTask';
+import { IOSSwitch } from 'ui/Switch/Switch';
 import { BoxCard, listStyled, dividerStyled } from 'ui/Cards/Cards';
 import { priority } from 'utils/constants';
 import { mainColor } from 'assets/styles/colors';
-import { TasksCardProps } from 'typings/components/Cards';
+import { TasksCardProps } from 'typings/components/componentsTypes';
 
 export const TasksCard: React.FC<TasksCardProps> = ({
   tasks,

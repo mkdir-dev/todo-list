@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 
 import { mainColor, mainColorHover } from 'assets/styles/colors';
-import { ExpandMoreProps } from 'typings/shared/buttons/buttons';
+import { ExpandMoreProps } from 'typings/shared/buttonsTypes';
 
 export const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props;

@@ -16,11 +16,8 @@ import { TasksCard } from 'components/Cards/TasksCard';
 import { FutureCard } from 'components/Cards/FutureCard';
 import { MainBox, MainListItem } from 'ui/Main/Main';
 import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
-import { Tasks } from 'typings/utils/constants';
-
-interface MainProps {
-  handleTaskState: (value: Tasks[]) => void;
-}
+import { Tasks } from 'typings/utils/constantsTypes';
+import { MainProps } from 'typings/components/componentsTypes';
 
 export const Main: React.FC<MainProps> = ({ handleTaskState }) => {
   const taskState = useContext(TaskContext);

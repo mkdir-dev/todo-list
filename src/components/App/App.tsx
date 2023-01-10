@@ -8,7 +8,7 @@ import { Main } from 'components/Main/Main';
 import { Ticker } from 'components/Ticker/Ticker';
 
 import { AppContainer } from 'ui/App/App';
-import { Tasks } from 'typings/utils/constants';
+import { Tasks } from 'typings/utils/constantsTypes';
 
 export const App: React.FC = () => {
   const [taskState, setTaskState] = useState<Tasks[]>([]);
