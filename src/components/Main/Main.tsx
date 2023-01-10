@@ -72,7 +72,12 @@ export const Main: React.FC<MainProps> = ({ handleTaskState }) => {
                 timeout="auto"
                 unmountOnExit
               >
-                <CardContent sx={{ padding: '24px' }}>
+                <CardContent
+                  sx={{
+                    padding: '0 24px',
+                    '&:last-child': { paddingBottom: 0 },
+                  }}
+                >
                   {tasksToday && (
                     <TasksCard
                       tasks={tasksToday}

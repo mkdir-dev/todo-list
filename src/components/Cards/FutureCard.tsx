@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { TasksCard } from './TasksCard';
 import { ExpandMore } from 'shared/buttons/ExpandMore';
-import { CardTasks, dividerStyled } from 'ui/components/cardsUi';
+import { CardTasks, dividerCardStyled } from 'ui/components/cardsUi';
 import { grayColor } from 'assets/styles/colors';
 import { TasksCardProps } from 'typings/components/componentsTypes';
 
@@ -47,7 +47,7 @@ export const FutureCard: React.FC<TasksCardProps> = ({
         <Divider
           orientation="vertical"
           flexItem
-          sx={() => dividerStyled(grayColor)}
+          sx={() => dividerCardStyled(grayColor)}
         />
         <Typography variant="h2" sx={{ flex: 1 }}>
           {`${titleTask} Tasks:`}
@@ -66,7 +66,10 @@ export const FutureCard: React.FC<TasksCardProps> = ({
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent
-          sx={{ padding: '8px 12px 0', '&:last-child': { paddingBottom: 0 } }}
+          sx={{
+            padding: '8px 12px 0',
+            '&:last-child': { paddingBottom: 0 },
+          }}
         >
           <TasksCard
             tasks={tasks}
