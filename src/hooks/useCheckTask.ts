@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query';
 
 import { CheckTaskTaskHookData, TaskHook } from 'typings/hooks/useAddTask';
-import { Task, Tasks } from 'typings/utils/constantsTypes';
+import { Task } from 'typings/utils/constantsTypes';
 
 export const useCheckTask = ({
   taskState,
@@ -9,27 +9,16 @@ export const useCheckTask = ({
 }: TaskHook): CheckTaskTaskHookData => {
   const { mutate, isLoading } = useMutation(
     async (values: Task) => {
-      const arr: Tasks[] = taskState.map((el) => {
-        if (el.date === values.date) {
-          const tasksArr = el.tasks.map((i) => {
-            if (i.id === values.id) {
-              return {
+      return taskState.map((el) => ({
+        ...el,
+        tasks:
+          el.date === values.date
+            ? el.tasks.map((i) => ({
                 ...i,
-                done: !values.done,
-              };
-            }
-            return i;
-          });
-
-          return {
-            ...el,
-            tasks: tasksArr,
-          };
-        }
-        return el;
-      });
-
-      return arr;
+                done: i.id === values.id ? !values.done : values.done,
+              }))
+            : el.tasks,
+      }));
     },
     {
       onSuccess,
