@@ -1,4 +1,4 @@
-import { Task, Tasks } from 'typings/utils/constantsTypes';
+import { Task, Tasks } from 'types/utils/constantsTypes';
 
 export interface TaskData {
   title: string;

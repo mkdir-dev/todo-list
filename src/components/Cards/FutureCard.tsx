@@ -13,7 +13,7 @@ import { TasksCard } from './TasksCard';
 import { ExpandMore } from 'shared/buttons/ExpandMore';
 import { CardTasks, dividerCardStyled } from 'ui/components/cardsUi';
 import { grayColor } from 'assets/styles/colors';
-import { TasksCardProps } from 'typings/components/componentsTypes';
+import { TasksCardProps } from 'types/components/componentsTypes';
 
 export const FutureCard: React.FC<TasksCardProps> = ({
   tasks,

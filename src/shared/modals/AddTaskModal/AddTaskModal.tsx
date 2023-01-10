@@ -39,8 +39,8 @@ import { mainBgColor, mainColor } from 'assets/styles/colors';
 import {
   AddTaskModalProps,
   ValidAddTaskParams,
-} from 'typings/shared/modalsTypes';
-import { PriorityParams } from 'typings/utils/constantsTypes';
+} from 'types/shared/modalsTypes';
+import { PriorityParams } from 'types/utils/constantsTypes';
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   open,

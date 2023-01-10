@@ -1,4 +1,4 @@
-import { Tasks } from 'typings/utils/constantsTypes';
+import { Tasks } from 'types/utils/constantsTypes';
 
 export interface HeaderProps {
   handleTaskState: (value: Tasks[]) => void;

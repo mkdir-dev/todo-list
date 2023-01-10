@@ -22,7 +22,7 @@ import {
 } from 'ui/components/settingsUi';
 import { IOSSwitch } from 'ui/switches/switchUi';
 import { mainColor, successColor } from 'assets/styles/colors';
-import { SettingsProps } from 'typings/components/componentsTypes';
+import { SettingsProps } from 'types/components/componentsTypes';
 
 export const Settings: React.FC<SettingsProps> = ({
   isSettingsDialog,

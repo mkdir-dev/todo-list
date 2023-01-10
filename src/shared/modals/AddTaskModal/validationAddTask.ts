@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ValidAddTask } from 'typings/shared/modalsTypes';
+import { ValidAddTask } from 'types/shared/modalsTypes';
 
 export const validationAddTask: ValidAddTask = z.object({
   title: z

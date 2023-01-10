@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import { validationAddTask } from 'shared/modals/AddTaskModal/validationAddTask';
-import { Task, Tasks } from 'typings/utils/constantsTypes';
+import { Task, Tasks } from 'types/utils/constantsTypes';
 
 export interface InfoTaskModalProps {
   infoTask: Task | null;

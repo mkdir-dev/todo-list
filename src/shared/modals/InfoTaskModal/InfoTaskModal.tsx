@@ -17,7 +17,7 @@ import {
   ActionErrBtn,
 } from 'ui/buttons/buttonUi';
 import { mainBgColor, mainColor } from 'assets/styles/colors';
-import { InfoTaskModalProps } from 'typings/shared/modalsTypes';
+import { InfoTaskModalProps } from 'types/shared/modalsTypes';
 import { priority } from 'utils/constants';
 
 export const InfoTaskModal: React.FC<InfoTaskModalProps> = ({

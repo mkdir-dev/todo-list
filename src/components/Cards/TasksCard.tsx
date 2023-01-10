@@ -13,8 +13,8 @@ import {
 } from 'ui/components/cardsUi';
 import { priority } from 'utils/constants';
 import { mainColor } from 'assets/styles/colors';
-import { TasksCardProps } from 'typings/components/componentsTypes';
-import { Task } from 'typings/utils/constantsTypes';
+import { TasksCardProps } from 'types/components/componentsTypes';
+import { Task } from 'types/utils/constantsTypes';
 
 export const TasksCard: React.FC<TasksCardProps> = ({
   tasks,

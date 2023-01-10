@@ -4,7 +4,7 @@ import {
   loadColor,
   errColor,
 } from 'assets/styles/colors';
-import { Priority, PriorityParams } from 'typings/utils/constantsTypes';
+import { Priority, PriorityParams } from 'types/utils/constantsTypes';
 
 export const priority: Priority = {
   normal: {

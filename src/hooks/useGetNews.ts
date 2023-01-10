@@ -4,7 +4,7 @@ import {
   GetNewsHook,
   GetNewsHookData,
   GetNewsDataResponse,
-} from 'typings/hooks/useGetNews';
+} from 'types/hooks/useGetNews';
 
 export const useGetNews = ({ isGetNews }: GetNewsHook): GetNewsHookData => {
   const { data, isLoading, isError } = useQuery(
