@@ -31,8 +31,8 @@ import {
   inputFormStyle,
   optionAutocompleteStyle,
   textAreaFormStyle,
-} from 'ui/Input/Input';
-import { ActionCancelBtn, ActionConfirmBtn } from 'ui/Button/Button';
+} from 'ui/inputs/inputUi';
+import { ActionCancelBtn, ActionConfirmBtn } from 'ui/buttons/buttonUi';
 import { datePrevalidator } from 'utils/helpers/dateHelpers';
 import { priorityParams } from 'utils/constants';
 import { mainBgColor, mainColor } from 'assets/styles/colors';

@@ -14,8 +14,8 @@ import {
 import { TaskContext } from 'contexts/TaskContext';
 import { TasksCard } from 'components/Cards/TasksCard';
 import { FutureCard } from 'components/Cards/FutureCard';
-import { MainBox, MainListItem } from 'ui/Main/Main';
-import { CheckedIcon, CheckboxIcon } from 'ui/BpCheckbox/BpCheckbox';
+import { MainBox, MainListItem } from 'ui/components/mainUi';
+import { CheckedIcon, CheckboxIcon } from 'ui/checkboxes/checkboxUi';
 import { Tasks } from 'typings/utils/constantsTypes';
 import { MainProps } from 'typings/components/componentsTypes';
 

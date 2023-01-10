@@ -14,13 +14,13 @@ import AddTaskIcon from '@mui/icons-material/AddTask';
 import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
 import { AddTaskModal } from 'shared/modals/AddTaskModal/AddTaskModal';
 import { IconBtn } from 'shared/buttons/IconBtn';
-import { TransitionDialog } from 'ui/TransitionDialog/TransitionDialog';
+import { TransitionDialog } from 'ui/transitions/transitionUi';
 import {
   appBarSettingsStyled,
   ListSettings,
   ToolbarSettings,
-} from 'ui/Settings/Settings';
-import { IOSSwitch } from 'ui/Switch/Switch';
+} from 'ui/components/settingsUi';
+import { IOSSwitch } from 'ui/switches/switchUi';
 import { mainColor, successColor } from 'assets/styles/colors';
 import { SettingsProps } from 'typings/components/componentsTypes';
 

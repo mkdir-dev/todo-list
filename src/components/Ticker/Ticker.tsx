@@ -4,7 +4,7 @@ import { CircularProgress, Typography } from '@mui/material';
 
 import { ShowNewsTickerContext } from 'contexts/ShowNewsTickerContext';
 import { useGetNews } from 'hooks/useGetNews';
-import { TickerBoxStyled } from 'ui/Ticker/Ticker';
+import { TickerBoxStyled } from 'ui/components/tickerUi';
 import { errColor, loadColor, mainColor } from 'assets/styles/colors';
 
 export const Ticker: React.FC = () => {

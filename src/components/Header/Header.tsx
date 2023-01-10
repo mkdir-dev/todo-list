@@ -4,7 +4,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 import { Settings } from 'components/Settings/Settings';
 import { IconBtn } from 'shared/buttons/IconBtn';
-import { HeaderBox } from 'ui/Header/Header';
+import { HeaderBox } from 'ui/components/headerUi';
 import { HeaderProps } from 'typings/components/componentsTypes';
 
 export const Header: React.FC<HeaderProps> = ({

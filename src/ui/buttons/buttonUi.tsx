@@ -1,11 +1,6 @@
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
-import {
-  mainColor,
-  subtitleColor,
-  successColor,
-  // grayColor,
-} from 'assets/styles/colors';
+import { mainColor, subtitleColor, successColor } from 'assets/styles/colors';
 
 export const ActionCancelBtn = styled(Button)<ButtonProps>(() => ({
   color: mainColor,

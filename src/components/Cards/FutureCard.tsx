@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { TasksCard } from './TasksCard';
 import { ExpandMore } from 'shared/buttons/ExpandMore';
-import { CardTasks, dividerStyled } from 'ui/Cards/Cards';
+import { CardTasks, dividerStyled } from 'ui/components/cardsUi';
 import { grayColor } from 'assets/styles/colors';
 import { TasksCardProps } from 'typings/components/componentsTypes';
 
