@@ -44,6 +44,9 @@ export const InfoTaskModal: React.FC<InfoTaskModalProps> = ({
           padding: '24px 24px 4px',
           color: mainColor,
           wordWrap: 'break-word',
+          '&::first-letter': {
+            textTransform: 'uppercase',
+          },
         }}
       >
         {infoTask?.title}
@@ -63,7 +66,15 @@ export const InfoTaskModal: React.FC<InfoTaskModalProps> = ({
       </Box>
 
       <DialogContent>
-        <DialogContentText sx={{ color: mainColor, wordWrap: 'break-word' }}>
+        <DialogContentText
+          sx={{
+            color: mainColor,
+            wordWrap: 'break-word',
+            '&::first-letter': {
+              textTransform: 'uppercase',
+            },
+          }}
+        >
           {infoTask?.description}
         </DialogContentText>
       </DialogContent>

@@ -32,8 +32,6 @@ export const TasksCard: React.FC<TasksCardProps> = ({
     },
   });
 
-  if (isLoadingCheckTask) console.log('isLoadingCheckTask', isLoadingCheckTask);
-
   return (
     <>
       <List sx={() => (todayTasks ? listCardStyled : {})}>
@@ -69,6 +67,7 @@ export const TasksCard: React.FC<TasksCardProps> = ({
             <IOSSwitch
               checked={task.done}
               sx={{ alignItems: 'flex-end' }}
+              disabled={isLoadingCheckTask}
               onClick={(evt) => {
                 evt.stopPropagation();
 
