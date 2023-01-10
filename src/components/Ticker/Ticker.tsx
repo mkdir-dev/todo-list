@@ -17,7 +17,6 @@ export const Ticker: React.FC = () => {
 
   useEffect(() => {
     if (isShowNewsTicker && NewsData) {
-      console.log('useEffect');
       setStringNews(NewsData.map((news) => news.title).join(' * * * '));
     }
   }, [NewsData, isShowNewsTicker]);
