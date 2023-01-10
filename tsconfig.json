@@ -1,7 +1,8 @@
 {
   "include": [
     "src",
-    "src/**/*"
+    "src/types/fonts.d.ts",
+    "src/types/.d.ts",
   ],
   "compilerOptions": {
     "baseUrl": "src",
@@ -12,7 +13,8 @@
     ],
     "typeRoots": [
       "node_modules/@types",
-      "src/types"
+      "src/types/fonts.d.ts",
+      "src/types/.d.ts",
     ],
     "module": "esnext",
     "target": "es6",
