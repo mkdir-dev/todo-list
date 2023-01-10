@@ -96,7 +96,7 @@ export const InfoTaskModal: React.FC<InfoTaskModalProps> = ({
               handleClose();
             }}
           >
-            Confirm
+            Done
           </ActionConfirmBtn>
         )}
       </DialogActions>
