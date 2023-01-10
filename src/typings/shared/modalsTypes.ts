@@ -1,7 +1,14 @@
 import { z } from 'zod';
 
 import { validationAddTask } from 'shared/modals/AddTaskModal/validationAddTask';
-import { Tasks } from 'typings/utils/constantsTypes';
+import { Task, Tasks } from 'typings/utils/constantsTypes';
+
+export interface InfoTaskModalProps {
+  infoTask: Task | null;
+  open: boolean;
+  handleClose: () => void;
+  handleCheckTask: (values: Task) => void;
+}
 
 export interface AddTaskModalProps {
   open: boolean;

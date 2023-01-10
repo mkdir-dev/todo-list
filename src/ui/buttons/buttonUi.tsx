@@ -1,6 +1,11 @@
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
-import { mainColor, subtitleColor, successColor } from 'assets/styles/colors';
+import {
+  mainColor,
+  subtitleColor,
+  successColor,
+  errColor,
+} from 'assets/styles/colors';
 
 export const ActionCancelBtn = styled(Button)<ButtonProps>(() => ({
   color: mainColor,
@@ -33,5 +38,22 @@ export const ActionConfirmBtn = styled(Button)<ButtonProps>(() => ({
   '&.Mui-disabled': {
     color: 'rgba(16, 194, 0, 0.3)',
     border: `2px solid rgba(16, 194, 0, 0.3)`,
+  },
+}));
+
+export const ActionErrBtn = styled(Button)<ButtonProps>(() => ({
+  color: errColor,
+  border: `2px solid ${errColor}`,
+  borderRadius: '20px',
+  boxSizing: 'border-box',
+
+  '&:hover': {
+    color: 'rgba(255, 0, 0, 0.6)',
+    border: `2px solid rgba(255, 0, 0, 0.6)`,
+  },
+
+  '&.Mui-disabled': {
+    color: 'rgba(255, 0, 0, 0.3)',
+    border: `2px solid rgba(255, 0, 0, 0.3)`,
   },
 }));

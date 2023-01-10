@@ -269,7 +269,6 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             type="submit"
             variant="outlined"
             size="large"
-            sx={{ color: 'green' }}
             disabled={isLoadingAddTask || !isValid}
             onClick={() => {
               const values = getValues();
