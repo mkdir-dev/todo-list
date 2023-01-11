@@ -15,7 +15,7 @@ export const useCheckTask = ({
           el.date === values.date
             ? el.tasks.map((i) => ({
                 ...i,
-                done: i.id === values.id ? !values.done : values.done,
+                done: i.id === values.id ? !values.done : i.done,
               }))
             : el.tasks,
       }));
